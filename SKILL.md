@@ -105,83 +105,121 @@ AI 根据内容自动判断场景类型，用户可通过 `--style=launch` / `--
 **必须严格遵循 `references/visual-spec.md` 规范**，生成乔布斯风格 PPT：
 
 #### CSS 规范（必须包含）
+
+根据分配的 flavor 选择对应的 CSS 样式。**整套 PPT 必须使用同一种 flavor**。
+
 ```css
-/* 封面页 */
-.slide-cover {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+/* ========== 通用基础样式（所有 flavor 必须包含）========== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+  width: 100%; height: 100%;
 }
+.slide {
+  display: none; flex-direction: column; align-items: center; justify-content: center;
+  width: 100%; height: 100%; padding: 60px; text-align: center;
+}
+.slide.active { display: flex; }
+.slide-title { font-size: 56px; font-weight: 700; margin-bottom: 60px; max-width: 80%; }
+.slide-desc { font-size: 24px; font-weight: 300; max-width: 60%; line-height: 1.6; }
+.slide-number { position: fixed; bottom: 30px; right: 40px; font-size: 14px; color: #666; font-weight: 300; }
+```
+
+**Flavor 1：极简**
+```css
+/* 极简风格：纯白文字 + 炭灰背景 + 金色强调 */
+body { background: #0a0a0a; color: #ffffff; }
+.slide-cover { background: #0a0a0a; }
+.slide-cover .main-title { font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px; color: #ffffff; }
+.slide-cover .sub-title { font-size: 28px; color: #888; font-weight: 300; }
+.slide-content { background: #0a0a0a; }
+.slide-content .slide-title { color: #ffffff; }
+.slide-content .slide-desc { color: #888; }
+.slide-impact { background: #0a0a0a; }
+.slide-impact .impact-title { font-size: 64px; font-weight: 700; color: #d4af37; }
+.slide-end { background: #0a0a0a; }
+.slide-end .end-title { font-size: 64px; font-weight: 700; color: #d4af37; }
+```
+
+**Flavor 2：科技**
+```css
+/* 科技风格：电光蓝渐变文字 + 深灰背景 */
+body { background: #0a0a0a; color: #ffffff; }
+.slide-cover { background: #0a0a0a; }
 .slide-cover .main-title {
-  font-size: 72px;
-  font-weight: 700;
-  letter-spacing: -2px;
-  margin-bottom: 40px;
-  background: linear-gradient(90deg, #ffffff, #ffd700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px;
+  background: linear-gradient(90deg, #4a90d9, #1a3a5c);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-.slide-cover .sub-title {
-  font-size: 28px;
-  color: #888;
-  font-weight: 300;
-}
+.slide-cover .sub-title { font-size: 28px; color: #4a90d9; font-weight: 300; }
+.slide-content { background: #0a0a0a; }
+.slide-content .slide-title { color: #ffffff; }
+.slide-content .slide-desc { color: #4a90d9; }
+.slide-impact { background: #0a0a0a; }
+.slide-impact .impact-title { font-size: 64px; font-weight: 700; color: #4a90d9; }
+.slide-end { background: #0a0a0a; }
+.slide-end .end-title { font-size: 64px; font-weight: 700; color: #4a90d9; }
+```
 
-/* 内容页 */
-.slide-content {
-  background: #0a0a0a;
+**Flavor 3：暖叙**
+```css
+/* 暖叙风格：琥珀金渐变文字 + 深空灰背景 */
+body { background: #1a1a2e; color: #ffffff; }
+.slide-cover { background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%); }
+.slide-cover .main-title {
+  font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px;
+  background: linear-gradient(90deg, #ffd700, #ff8800);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-.slide-content .slide-title {
-  font-size: 56px;
-  font-weight: 700;
-  margin-bottom: 60px;
-  color: #ffffff;
-  max-width: 80%;
-}
-.slide-content .slide-desc {
-  font-size: 24px;
-  color: #666;
-  font-weight: 300;
-  max-width: 60%;
-  line-height: 1.6;
-}
+.slide-cover .sub-title { font-size: 28px; color: #d4af37; font-weight: 300; }
+.slide-content { background: #1a1a2e; }
+.slide-content .slide-title { color: #ffffff; }
+.slide-content .slide-desc { color: #d4af37; }
+.slide-impact { background: #1a1a2e; }
+.slide-impact .impact-title { font-size: 64px; font-weight: 700; color: #ffd700; }
+.slide-end { background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%); }
+.slide-end .end-title { font-size: 64px; font-weight: 700; color: #ffd700; }
+```
 
-/* 冲击页 */
-.slide-impact {
-  background: #0a0a0a;
-}
-.slide-impact .impact-title {
-  font-size: 64px;
-  font-weight: 700;
-  color: #ffd700;
-}
+**Flavor 4：锐利**
+```css
+/* 锐利风格：纯白文字 + 红色强调 + 纯黑背景 */
+body { background: #000000; color: #ffffff; }
+.slide-cover { background: #000000; }
+.slide-cover .main-title { font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px; color: #ffffff; }
+.slide-cover .sub-title { font-size: 28px; color: #ff4444; font-weight: 300; }
+.slide-content { background: #000000; }
+.slide-content .slide-title { color: #ffffff; }
+.slide-content .slide-desc { color: #888888; }
+.slide-impact { background: #000000; }
+.slide-impact .impact-title { font-size: 64px; font-weight: 700; color: #ff4444; }
+.slide-end { background: #000000; }
+.slide-end .end-title { font-size: 64px; font-weight: 700; color: #ff4444; }
+```
 
-/* 结尾页 */
-.slide-end {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+**Flavor 5：自然**
+```css
+/* 自然风格：薄荷绿渐变文字 + 深灰背景 */
+body { background: #0a0a0a; color: #ffffff; }
+.slide-cover { background: #0a0a0a; }
+.slide-cover .main-title {
+  font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px;
+  background: linear-gradient(90deg, #50c878, #2a7a4a);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-.slide-end .end-title {
-  font-size: 64px;
-  font-weight: 700;
-  color: #ffd700;
-}
-
-/* 页面指示器 */
-.slide-number {
-  position: absolute;
-  bottom: 30px;
-  right: 40px;
-  font-size: 14px;
-  color: #666;
-  font-weight: 300;
-}
-
-/* 金色强调 */
-.gold-text {
-  color: #d4af37;
-}
+.slide-cover .sub-title { font-size: 28px; color: #50c878; font-weight: 300; }
+.slide-content { background: #0a0a0a; }
+.slide-content .slide-title { color: #ffffff; }
+.slide-content .slide-desc { color: #50c878; }
+.slide-impact { background: #0a0a0a; }
+.slide-impact .impact-title { font-size: 64px; font-weight: 700; color: #50c878; }
+.slide-end { background: #0a0a0a; }
+.slide-end .end-title { font-size: 64px; font-weight: 700; color: #50c878; }
 ```
 
 #### 设计要求
-- 深色背景 `#0a0a0a`，金色强调 `#d4af37` 或 `#ffd700`
+- **必须使用分配的 flavor 样式**，整套风格一致
 - 乔布斯式标题 ≤12 字，居中大字，60%以上留白
 - 每页只展示 1 个核心概念
 - 必须包含 slide-number 页面指示器
@@ -223,6 +261,7 @@ AI 根据内容自动判断场景类型，用户可通过 `--style=launch` / `--
 当 N > 1 时：
 - **口播稿阶段**：派发 N 个 subagent 并行，每个生成 `script_x.md`
 - **PPT 阶段**：派发 N 个 subagent 并行，每个读取 `script_x.md` 生成 `presentation_x.html`，另生成 `index.html` 索引页
+- **风格分配**：第1套用**极简**、第2套用**科技**、第3套用**暖叙**、第4套用**锐利**、第5套用**自然**（按顺序循环）
 
 一一对应关系：
 ```
