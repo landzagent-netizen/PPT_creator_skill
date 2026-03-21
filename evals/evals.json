@@ -1,0 +1,23 @@
+{
+  "skill_name": "ppt-creator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我有一份关于 MCP 协议的演讲大纲，帮我做成 PPT，文件在 /Users/mac_mini/Documents/ppt-generator/ppt-creator-workspace/test-inputs/mcp-talk.md",
+      "expected_output": "生成修正版口播稿 script.md + PPT presentation.html，口播稿应有钩子开场、口语化改写、画面标注",
+      "files": ["/Users/mac_mini/Documents/ppt-generator/ppt-creator-workspace/test-inputs/mcp-talk.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "这是我录 B 站视频的脚本，帮我优化一下讲稿然后做 PPT，给我 3 个版本选 --copies 3，脚本文件在 /Users/mac_mini/Documents/ppt-generator/ppt-creator-workspace/test-inputs/bilibili-script.md",
+      "expected_output": "生成 script_1/2/3.md + presentation_1/2/3.html + index.html，三个版本风格有差异化",
+      "files": ["/Users/mac_mini/Documents/ppt-generator/ppt-creator-workspace/test-inputs/bilibili-script.md"]
+    },
+    {
+      "id": 3,
+      "prompt": "帮我把这段内容做成演示文稿：我们团队开发了一个 AI 代码助手，能自动补全、自动重构、还能跑测试。上线三个月，用户从 0 到 5 万，代码产出效率提升 40%。",
+      "expected_output": "生成修正版口播稿 script.md + PPT presentation.html，从简短文本扩展为完整口播稿",
+      "files": []
+    }
+  ]
+}
