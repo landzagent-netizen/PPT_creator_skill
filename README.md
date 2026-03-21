@@ -1,9 +1,7 @@
-# ppt-creator
+# PPT-Creator Skill 
 
 将任意原稿（演讲稿、视频脚本、播客稿、大纲）一键转化为乔布斯风格口播稿 + PPT 的 Claude Code Skill。
 <img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/f8c9f45d-4960-4ec2-93f8-4199f661daa0" />
-
-口播稿是第一优先级产物，PPT 是口播稿的视觉配套。
 
 ## Features
 
