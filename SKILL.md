@@ -108,6 +108,8 @@ AI 根据内容自动判断场景类型，用户可通过 `--style=launch` / `--
 
 根据分配的 flavor 选择对应的 CSS 样式。**整套 PPT 必须使用同一种 flavor**。
 
+> **推荐风格**：以下 5 种 flavor 源自用户验证过的高质量 PPT，优先使用这些定义。
+
 ```css
 /* ========== 通用基础样式（所有 flavor 必须包含）========== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -121,101 +123,101 @@ html, body {
   width: 100%; height: 100%; padding: 60px; text-align: center;
 }
 .slide.active { display: flex; }
-.slide-title { font-size: 56px; font-weight: 700; margin-bottom: 60px; max-width: 80%; }
-.slide-desc { font-size: 24px; font-weight: 300; max-width: 60%; line-height: 1.6; }
+```
+
+---
+
+**Flavor 1：P1经典**（权重最高）
+```css
+/* P1经典风格：金色渐变 + 大量留白 + 视觉标注 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+html, body { font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif; }
+body { background: #0a0a0a; color: #ffffff; overflow: hidden; height: 100vh; width: 100vw; }
+.slide { width: 100%; height: 100%; display: none; flex-direction: column; justify-content: center; align-items: center; padding: 80px; position: relative; background: #0a0a0a; }
+.slide.active { display: flex; }
+.slide-title { font-size: 4.5rem; font-weight: 900; color: #ffffff; text-align: center; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 40px; }
+.slide-title.gold { background: linear-gradient(135deg, #ffd700 0%, #ffaa00 50%, #ff8800 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.slide-subtitle { font-size: 1.8rem; font-weight: 300; color: rgba(255, 255, 255, 0.7); text-align: center; max-width: 800px; line-height: 1.6; }
+.slide-content { font-size: 1.4rem; font-weight: 400; color: rgba(255, 255, 255, 0.6); text-align: center; max-width: 900px; line-height: 1.8; margin-top: 30px; }
+.slide-visual { font-size: 1.2rem; color: rgba(255, 255, 255, 0.4); margin-top: 60px; font-style: italic; }
+.slide-cover { background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); }
+.slide-cover .main-title { font-size: 6rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 40px; color: #ffffff; }
+.slide-cover .sub-title { font-size: 1.8rem; font-weight: 300; color: rgba(255, 255, 255, 0.6); }
+.slide-number { position: absolute; bottom: 40px; right: 60px; font-size: 14px; color: #666; font-family: "SF Mono", monospace; }
+```
+
+---
+
+**Flavor 2：P2简洁**（权重次高）
+```css
+/* P2简洁风格：白到金渐变 + 极简排版 */
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: #0a0a0a; color: #ffffff; overflow: hidden; }
+.slide { width: 100vw; height: 100vh; display: none; flex-direction: column; justify-content: center; align-items: center; padding: 80px; position: relative; }
+.slide.active { display: flex; }
+.slide-number { position: absolute; bottom: 40px; right: 60px; font-size: 14px; color: #666; font-family: "SF Mono", monospace; }
+.cover h1 { font-size: 72px; font-weight: 600; letter-spacing: -2px; margin-bottom: 24px; background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.cover .subtitle { font-size: 28px; color: #888; font-weight: 300; letter-spacing: 8px; }
+.cover .tagline { margin-top: 60px; font-size: 20px; color: #555; letter-spacing: 4px; }
+.content h2 { font-size: 56px; font-weight: 600; letter-spacing: -1px; margin-bottom: 48px; line-height: 1.2; }
+.content h2 .gold { color: #ffd700; }
+.content .body-text { font-size: 24px; color: #888; font-weight: 300; line-height: 1.8; max-width: 800px; }
+.content .highlight { color: #fff; font-weight: 400; }
+.big-text h2 { font-size: 64px; font-weight: 700; letter-spacing: -2px; }
+```
+
+---
+
+**Flavor 3：P3暖金**（权重第三）
+```css
+/* P3暖金风格：白+金渐变 + 深空灰背景 */
+body { background: #0a0a0a; color: #ffffff; overflow: hidden; }
+.slide { display: none; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 60px; text-align: center; }
+.slide.active { display: flex; }
+.slide-cover { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); }
+.slide-cover .main-title { font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px; background: linear-gradient(90deg, #ffffff, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.slide-cover .sub-title { font-size: 28px; color: #888; font-weight: 300; }
+.slide-content { background: #0a0a0a; }
+.slide-content .slide-title { font-size: 56px; font-weight: 700; margin-bottom: 60px; color: #ffffff; max-width: 80%; }
+.slide-content .slide-desc { font-size: 24px; color: #666; font-weight: 300; max-width: 60%; line-height: 1.6; }
+.slide-end { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); }
+.slide-end .end-title { font-size: 64px; font-weight: 700; color: #ffd700; }
 .slide-number { position: fixed; bottom: 30px; right: 40px; font-size: 14px; color: #666; font-weight: 300; }
 ```
 
-**Flavor 1：极简**
+---
+
+**Flavor 4：P4光晕**（权重第四）
 ```css
-/* 极简风格：纯白文字 + 炭灰背景 + 金色强调 */
-body { background: #0a0a0a; color: #ffffff; }
-.slide-cover { background: #0a0a0a; }
-.slide-cover .main-title { font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px; color: #ffffff; }
-.slide-cover .sub-title { font-size: 28px; color: #888; font-weight: 300; }
-.slide-content { background: #0a0a0a; }
-.slide-content .slide-title { color: #ffffff; }
-.slide-content .slide-desc { color: #888; }
-.slide-impact { background: #0a0a0a; }
-.slide-impact .impact-title { font-size: 64px; font-weight: 700; color: #d4af37; }
-.slide-end { background: #0a0a0a; }
-.slide-end .end-title { font-size: 64px; font-weight: 700; color: #d4af37; }
+/* P4光晕风格：金色光晕 + 大字居中 */
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif; background: #0a0a0a; color: #ffffff; overflow: hidden; }
+.slide { width: 100vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px; position: relative; background: #0a0a0a; }
+.slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%); pointer-events: none; }
+.slide.cover { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); }
+.slide.cover::after { content: ''; position: absolute; bottom: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 60%); pointer-events: none; }
+.cover .main-title { font-size: 6rem; font-weight: 700; letter-spacing: -2px; text-align: center; margin-bottom: 30px; background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.cover .subtitle { font-size: 1.8rem; color: rgba(255,255,255,0.6); font-weight: 300; letter-spacing: 4px; }
+.slide.content { padding: 80px 120px; }
+.slide.content .slide-number { position: absolute; bottom: 40px; left: 60px; font-size: 0.9rem; color: rgba(255,255,255,0.3); font-family: "SF Mono", monospace; }
+.slide.content .slide-title { font-size: 4.5rem; font-weight: 700; text-align: center; margin-bottom: 50px; line-height: 1.2; letter-spacing: -1px; }
 ```
 
-**Flavor 2：科技**
-```css
-/* 科技风格：电光蓝渐变文字 + 深灰背景 */
-body { background: #0a0a0a; color: #ffffff; }
-.slide-cover { background: #0a0a0a; }
-.slide-cover .main-title {
-  font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px;
-  background: linear-gradient(90deg, #4a90d9, #1a3a5c);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.slide-cover .sub-title { font-size: 28px; color: #4a90d9; font-weight: 300; }
-.slide-content { background: #0a0a0a; }
-.slide-content .slide-title { color: #ffffff; }
-.slide-content .slide-desc { color: #4a90d9; }
-.slide-impact { background: #0a0a0a; }
-.slide-impact .impact-title { font-size: 64px; font-weight: 700; color: #4a90d9; }
-.slide-end { background: #0a0a0a; }
-.slide-end .end-title { font-size: 64px; font-weight: 700; color: #4a90d9; }
-```
+---
 
-**Flavor 3：暖叙**
+**Flavor 5：P5双色调**（权重第五）
 ```css
-/* 暖叙风格：琥珀金渐变文字 + 深空灰背景 */
-body { background: #1a1a2e; color: #ffffff; }
-.slide-cover { background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%); }
-.slide-cover .main-title {
-  font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px;
-  background: linear-gradient(90deg, #ffd700, #ff8800);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.slide-cover .sub-title { font-size: 28px; color: #d4af37; font-weight: 300; }
-.slide-content { background: #1a1a2e; }
-.slide-content .slide-title { color: #ffffff; }
-.slide-content .slide-desc { color: #d4af37; }
-.slide-impact { background: #1a1a2e; }
-.slide-impact .impact-title { font-size: 64px; font-weight: 700; color: #ffd700; }
-.slide-end { background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%); }
-.slide-end .end-title { font-size: 64px; font-weight: 700; color: #ffd700; }
-```
-
-**Flavor 4：锐利**
-```css
-/* 锐利风格：纯白文字 + 红色强调 + 纯黑背景 */
-body { background: #000000; color: #ffffff; }
-.slide-cover { background: #000000; }
-.slide-cover .main-title { font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px; color: #ffffff; }
-.slide-cover .sub-title { font-size: 28px; color: #ff4444; font-weight: 300; }
-.slide-content { background: #000000; }
-.slide-content .slide-title { color: #ffffff; }
-.slide-content .slide-desc { color: #888888; }
-.slide-impact { background: #000000; }
-.slide-impact .impact-title { font-size: 64px; font-weight: 700; color: #ff4444; }
-.slide-end { background: #000000; }
-.slide-end .end-title { font-size: 64px; font-weight: 700; color: #ff4444; }
-```
-
-**Flavor 5：自然**
-```css
-/* 自然风格：薄荷绿渐变文字 + 深灰背景 */
-body { background: #0a0a0a; color: #ffffff; }
-.slide-cover { background: #0a0a0a; }
-.slide-cover .main-title {
-  font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 40px;
-  background: linear-gradient(90deg, #50c878, #2a7a4a);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.slide-cover .sub-title { font-size: 28px; color: #50c878; font-weight: 300; }
-.slide-content { background: #0a0a0a; }
-.slide-content .slide-title { color: #ffffff; }
-.slide-content .slide-desc { color: #50c878; }
-.slide-impact { background: #0a0a0a; }
-.slide-impact .impact-title { font-size: 64px; font-weight: 700; color: #50c878; }
-.slide-end { background: #0a0a0a; }
-.slide-end .end-title { font-size: 64px; font-weight: 700; color: #50c878; }
+/* P5双色调风格：白色系 + 金蓝双色调 + 顶部页码 */
+:root { --bg-primary: #0a0a0a; --bg-secondary: #111111; --text-primary: #ffffff; --text-secondary: #888888; --accent-gold: #d4a853; --accent-blue: #4a90d9; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: var(--bg-primary); color: var(--text-primary); overflow: hidden; }
+.slide { width: 100vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 80px; position: relative; background: var(--bg-primary); }
+.slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, transparent 0%, var(--bg-primary) 70%); pointer-events: none; }
+.slide-cover { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%); }
+.slide-cover .title { font-size: 4.5rem; font-weight: 700; letter-spacing: -2px; text-align: center; background: linear-gradient(180deg, #ffffff 0%, #cccccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 40px; }
+.slide-cover .subtitle { font-size: 1.8rem; color: var(--text-secondary); font-weight: 300; letter-spacing: 8px; text-transform: uppercase; }
+.slide-cover .tagline { position: absolute; bottom: 120px; font-size: 1.2rem; color: var(--accent-gold); letter-spacing: 4px; }
+.slide-content { background: var(--bg-primary); }
+.slide-content .slide-number { position: absolute; top: 60px; right: 80px; font-size: 0.9rem; color: var(--text-secondary); opacity: 0.5; }
+.slide-content .main-title { font-size: 4rem; font-weight: 700; text-align: center; margin-bottom: 40px; line-height: 1.3; }
 ```
 
 #### 设计要求
@@ -261,7 +263,12 @@ body { background: #0a0a0a; color: #ffffff; }
 当 N > 1 时：
 - **口播稿阶段**：派发 N 个 subagent 并行，每个生成 `script_x.md`
 - **PPT 阶段**：派发 N 个 subagent 并行，每个读取 `script_x.md` 生成 `presentation_x.html`，另生成 `index.html` 索引页
-- **风格分配**：第1套用**极简**、第2套用**科技**、第3套用**暖叙**、第4套用**锐利**、第5套用**自然**（按顺序循环）
+- **风格分配（高权重推荐）**：优先使用以下 5 种验证过的优质风格：
+  - 第1套用 **P1经典**（金色渐变 + 大量留白）
+  - 第2套用 **P2简洁**（白到金渐变 + 极简排版）
+  - 第3套用 **P3暖金**（白+金渐变 + 深空灰背景）
+  - 第4套用 **P4光晕**（金色光晕 + 大字居中）
+  - 第5套用 **P5双色调**（白色系 + 金蓝双色调）
 
 一一对应关系：
 ```
