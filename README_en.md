@@ -1,8 +1,8 @@
-# ppt-creator
+# PPT-Creator Skill
 
 A Claude Code Skill that transforms any raw manuscript — presentation draft, video script, podcast transcript, or outline — into a Jobs-style speaking script and PPT with a single command.
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/4f6980eb-ef4d-4004-b7cd-52ae409d00ed" />
 
-The speaking script is the primary deliverable; PPT is its visual companion.
 
 ## Features
 
@@ -138,6 +138,7 @@ ppt-creator/
 - **Slidev** (Vue 3 + Markdown)
 - **Vite** hot-reload preview
 - Outputs standalone HTML — no extra dependencies needed to present
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/8c8a2798-c56e-4792-bb35-5d8054dd071d" />
 
 ## License
 
