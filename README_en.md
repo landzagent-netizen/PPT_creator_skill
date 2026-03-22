@@ -2,7 +2,7 @@
 
 🇬🇧 English | 🇨🇳 [中文](./README.md)
 
-# ppt-creator
+# PPT-Creator skill
 
 A Claude Code Skill that transforms any raw manuscript — presentation draft, video script, podcast transcript, or outline — into a Jobs-style speaking script and PPT with a single command.
 
