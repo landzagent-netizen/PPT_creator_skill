@@ -1,6 +1,6 @@
 🇨🇳 中文 | 🇬🇧 [English](./README_en.md)
 
-# PPT生成助手
+# PPT生成skill
 
 将任意原稿（演讲稿、视频脚本、播客稿、大纲）一键转化为乔布斯风格口播稿 + PPT 的 Claude Code Skill。
 
